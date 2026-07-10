@@ -72,11 +72,11 @@ resource "aws_security_group" "web-sg" {
   }
   // connectivity to ubuntu mirrors is required to run `apt-get update` and `apt-get install apache2`
   egress {
-    description = "Allow outbound traffic"
+    description = "Allow outbound traffic within VPC"
     from_port   = 0
     to_port     = 0
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["10.0.0.0/16"]
   }
 }
 
