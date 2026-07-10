@@ -77,16 +77,6 @@ resource "aws_security_group" "web-sg" {
   }
 }
 
-resource "aws_security_group" "tfsec_test" {
-  name = "tfsec-test"
-
-  ingress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-}
 output "web-address" {
   value = "${aws_instance.web.public_dns}:8080"
 }
