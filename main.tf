@@ -77,13 +77,13 @@ resource "aws_security_group" "web-sg" {
   }
 }
 
-resource "aws_security_group" "bad_sg" {
-  name = "bad-sg"
+resource "aws_security_group" "tfsec_test" {
+  name = "tfsec-test"
 
   ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
