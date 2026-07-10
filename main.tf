@@ -77,6 +77,16 @@ resource "aws_security_group" "web-sg" {
   }
 }
 
+resource "aws_security_group" "bad_sg" {
+  name = "bad-sg"
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
 output "web-address" {
   value = "${aws_instance.web.public_dns}:8080"
 }
